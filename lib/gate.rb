@@ -45,7 +45,7 @@ class Gate
   def enter(ticket)
     raise AlreadyEnteredTicketError if ticket.from
 
-    ticket.enter(self.name)
+    ticket.mark_as_enter(self.name)
   end
 
   # 改札口から出場します。<br>

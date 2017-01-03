@@ -19,7 +19,7 @@ class Ticket
 
   # 乗車駅の名前を記録します。
   # @param station_name [Symbol] 乗車駅の名前
-  def enter(station_name)
+  def mark_as_enter(station_name)
     @from = station_name
   end
 
