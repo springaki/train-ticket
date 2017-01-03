@@ -86,15 +86,15 @@ describe Gate do
 
   # NOTE: 以下のテストも同様に自分でコメントを外しながらテスト駆動開発を進めてください
 
-  # context '同じ駅で降りる場合' do
-  #   example 'エラーが発生する' do
-  #     ticket = Ticket.new(150)
-  #     umeda = Gate.new(:umeda)
-  #     umeda.enter(ticket)
-  #     expect { umeda.exit(ticket) }.to raise_error(ExitSameStationError)
-  #   end
-  # end
-  #
+  context '同じ駅で降りる場合' do
+    example 'エラーが発生する' do
+      ticket = Ticket.new(150)
+      umeda = Gate.new(:umeda)
+      umeda.enter(ticket)
+      expect { umeda.exit(ticket) }.to raise_error(ExitSameStationError)
+    end
+  end
+
   # context '改札を通った切符でもう一度入場する場合' do
   #   example 'エラーが発生する' do
   #     ticket = Ticket.new(150)
