@@ -43,6 +43,8 @@ class Gate
   # @param ticket [Ticket] 切符
   # @raise [AlreadyEnteredTicketError] すでに入場済みの切符を使った場合に発生します。
   def enter(ticket)
+    raise AlreadyEnteredTicketError if ticket.from
+
     ticket.enter(self.name)
   end
 

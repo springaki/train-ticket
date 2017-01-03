@@ -95,15 +95,15 @@ describe Gate do
     end
   end
 
-  # context '改札を通った切符でもう一度入場する場合' do
-  #   example 'エラーが発生する' do
-  #     ticket = Ticket.new(150)
-  #     umeda = Gate.new(:umeda)
-  #     umeda.enter(ticket)
-  #     expect { umeda.enter(ticket) }.to raise_error(AlreadyEnteredTicketError)
-  #   end
-  # end
-  #
+  context '改札を通った切符でもう一度入場する場合' do
+    example 'エラーが発生する' do
+      ticket = Ticket.new(150)
+      umeda = Gate.new(:umeda)
+      umeda.enter(ticket)
+      expect { umeda.enter(ticket) }.to raise_error(AlreadyEnteredTicketError)
+    end
+  end
+
   # context '使用済みの切符でもう一度降りる場合' do
   #   example 'エラーが発生する' do
   #     ticket = Ticket.new(150)
