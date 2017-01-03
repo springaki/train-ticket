@@ -18,9 +18,17 @@ class Gate
   # @return [Symbol] 駅の名前
   attr_reader :name
 
+  STATIONS = [
+    :umeda,
+    :juso,
+    :shonai,
+    :okamachi
+  ]
+
   # 改札口を初期化します。
   # @param name [Symbol] 駅の名前
   def initialize(name)
+    @name = name
   end
 
   # 改札口から入場します。<br>
@@ -38,10 +46,14 @@ class Gate
   # @raise [NotEnteredTicketError] 未入場の切符を使った場合に発生します。
   # @raise [ExitSameStationError] 乗車駅と同じ駅で出場した場合に発生します。
   def exit(ticket)
+    ticket.mark_as_stale
+
+    exitable?(ticket)
   end
 
   private
 
   def exitable?(ticket)
+    true #仮実装
   end
 end

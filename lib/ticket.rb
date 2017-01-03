@@ -9,22 +9,28 @@ class Ticket
   # @return [Symbol, nil] 乗車駅の名前
   attr_reader :from
 
+
+
   # 切符を初期化します。
   # @param fee [Integer] 切符の購入額
   def initialize(fee)
+    @fee = fee
   end
 
   # 乗車駅の名前を記録します。
   # @param station_name [Symbol] 乗車駅の名前
   def enter(station_name)
+    @from = station_name
   end
 
   # 切符を使用済みにします。
   def mark_as_stale
+    @stale = true
   end
 
   # 使用済みの切符であればtrueを返します。
   # @return [Boolean] 使用済みであればtrue
   def stale?
+    @stale
   end
 end
