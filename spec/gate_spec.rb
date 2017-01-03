@@ -115,11 +115,11 @@ describe Gate do
     end
   end
 
-  # context '改札を通っていない切符で降りる場合' do
-  #   example 'エラーが発生する' do
-  #     ticket = Ticket.new(150)
-  #     umeda = Gate.new(:umeda)
-  #     expect { umeda.exit(ticket) }.to raise_error(NotEnteredTicketError)
-  #   end
-  # end
+  context '改札を通っていない切符で降りる場合' do
+    example 'エラーが発生する' do
+      ticket = Ticket.new(150)
+      umeda = Gate.new(:umeda)
+      expect { umeda.exit(ticket) }.to raise_error(NotEnteredTicketError)
+    end
+  end
 end

@@ -58,6 +58,8 @@ class Gate
   def exit(ticket)
     raise ExitSameStationError if ticket.from == self.name
     raise StaleTicketError if ticket.stale?
+    raise NotEnteredTicketError if ticket.from.nil?
+
     ticket.mark_as_stale
     exitable?(ticket)
   end
