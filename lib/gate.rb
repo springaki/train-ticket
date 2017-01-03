@@ -64,7 +64,7 @@ class Gate
 
   def exitable?(ticket)
     from_index = STATIONS.index(ticket.from)
-    to_index = STATIONS.index(name)
+    to_index = STATIONS.index(self.name)
     fare = FARES[(from_index - to_index).abs]
     ticket.fee >= fare
   end
