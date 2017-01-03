@@ -25,6 +25,13 @@ class Gate
     :okamachi
   ]
 
+  FARES = [
+      nil,
+      150,
+      180,
+      220
+  ]
+
   # 改札口を初期化します。
   # @param name [Symbol] 駅の名前
   def initialize(name)
@@ -36,6 +43,7 @@ class Gate
   # @param ticket [Ticket] 切符
   # @raise [AlreadyEnteredTicketError] すでに入場済みの切符を使った場合に発生します。
   def enter(ticket)
+    ticket.enter(self.name)
   end
 
   # 改札口から出場します。<br>
@@ -47,13 +55,15 @@ class Gate
   # @raise [ExitSameStationError] 乗車駅と同じ駅で出場した場合に発生します。
   def exit(ticket)
     ticket.mark_as_stale
-
     exitable?(ticket)
   end
 
   private
 
   def exitable?(ticket)
-    true #仮実装
+    from_index = STATIONS.index(ticket.from)
+    to_index = STATIONS.index(name)
+    fare = FARES[(from_index - to_index).abs]
+    ticket.fee >= fare
   end
 end

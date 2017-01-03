@@ -16,17 +16,17 @@ describe Gate do
     # NOTE: 以下のテストは自分でコメントを外しながらテスト駆動開発を進めてください
 
     # # 2区間
-    # ticket = Ticket.new(150)
-    # umeda.enter(ticket)
-    # expect(shonai.exit(ticket)).to be_falsey
-    #
-    # ticket = Ticket.new(180)
-    # umeda.enter(ticket)
-    # expect(shonai.exit(ticket)).to be_truthy
-    #
-    # ticket = Ticket.new(220)
-    # umeda.enter(ticket)
-    # expect(shonai.exit(ticket)).to be_truthy
+    ticket = Ticket.new(150)
+    umeda.enter(ticket)
+    expect(shonai.exit(ticket)).to be_falsey
+
+    ticket = Ticket.new(180)
+    umeda.enter(ticket)
+    expect(shonai.exit(ticket)).to be_truthy
+
+    ticket = Ticket.new(220)
+    umeda.enter(ticket)
+    expect(shonai.exit(ticket)).to be_truthy
     #
     # # 3区間
     # ticket = Ticket.new(180)
