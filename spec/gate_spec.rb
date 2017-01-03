@@ -27,61 +27,61 @@ describe Gate do
     ticket = Ticket.new(220)
     umeda.enter(ticket)
     expect(shonai.exit(ticket)).to be_truthy
-    #
-    # # 3区間
-    # ticket = Ticket.new(180)
-    # umeda.enter(ticket)
-    # expect(okamachi.exit(ticket)).to be_falsey
-    #
-    # ticket = Ticket.new(220)
-    # umeda.enter(ticket)
-    # expect(okamachi.exit(ticket)).to be_truthy
-    #
-    # # 梅田以外から乗車
-    # ticket = Ticket.new(150)
-    # juso.enter(ticket)
-    # expect(okamachi.exit(ticket)).to be_falsey
-    #
-    # ticket = Ticket.new(180)
-    # juso.enter(ticket)
-    # expect(okamachi.exit(ticket)).to be_truthy
-    #
-    # # 上り
-    # # 1区間
-    # ticket = Ticket.new(150)
-    # okamachi.enter(ticket)
-    # expect(shonai.exit(ticket)).to be_truthy
-    #
-    # # 2区間
-    # ticket = Ticket.new(150)
-    # okamachi.enter(ticket)
-    # expect(juso.exit(ticket)).to be_falsey
-    #
-    # ticket = Ticket.new(180)
-    # okamachi.enter(ticket)
-    # expect(juso.exit(ticket)).to be_truthy
-    #
-    # ticket = Ticket.new(220)
-    # okamachi.enter(ticket)
-    # expect(juso.exit(ticket)).to be_truthy
-    #
-    # # 3区間
-    # ticket = Ticket.new(180)
-    # okamachi.enter(ticket)
-    # expect(umeda.exit(ticket)).to be_falsey
-    #
-    # ticket = Ticket.new(220)
-    # okamachi.enter(ticket)
-    # expect(umeda.exit(ticket)).to be_truthy
-    #
-    # # 岡町以外から乗車
-    # ticket = Ticket.new(150)
-    # shonai.enter(ticket)
-    # expect(umeda.exit(ticket)).to be_falsey
-    #
-    # ticket = Ticket.new(180)
-    # shonai.enter(ticket)
-    # expect(umeda.exit(ticket)).to be_truthy
+
+    # 3区間
+    ticket = Ticket.new(180)
+    umeda.enter(ticket)
+    expect(okamachi.exit(ticket)).to be_falsey
+
+    ticket = Ticket.new(220)
+    umeda.enter(ticket)
+    expect(okamachi.exit(ticket)).to be_truthy
+
+    # 梅田以外から乗車
+    ticket = Ticket.new(150)
+    juso.enter(ticket)
+    expect(okamachi.exit(ticket)).to be_falsey
+
+    ticket = Ticket.new(180)
+    juso.enter(ticket)
+    expect(okamachi.exit(ticket)).to be_truthy
+
+    # 上り
+    # 1区間
+    ticket = Ticket.new(150)
+    okamachi.enter(ticket)
+    expect(shonai.exit(ticket)).to be_truthy
+
+    # 2区間
+    ticket = Ticket.new(150)
+    okamachi.enter(ticket)
+    expect(juso.exit(ticket)).to be_falsey
+
+    ticket = Ticket.new(180)
+    okamachi.enter(ticket)
+    expect(juso.exit(ticket)).to be_truthy
+
+    ticket = Ticket.new(220)
+    okamachi.enter(ticket)
+    expect(juso.exit(ticket)).to be_truthy
+
+    # 3区間
+    ticket = Ticket.new(180)
+    okamachi.enter(ticket)
+    expect(umeda.exit(ticket)).to be_falsey
+
+    ticket = Ticket.new(220)
+    okamachi.enter(ticket)
+    expect(umeda.exit(ticket)).to be_truthy
+
+    # 岡町以外から乗車
+    ticket = Ticket.new(150)
+    shonai.enter(ticket)
+    expect(umeda.exit(ticket)).to be_falsey
+
+    ticket = Ticket.new(180)
+    shonai.enter(ticket)
+    expect(umeda.exit(ticket)).to be_truthy
   end
 
   # NOTE: 以下のテストも同様に自分でコメントを外しながらテスト駆動開発を進めてください
