@@ -104,17 +104,17 @@ describe Gate do
     end
   end
 
-  # context '使用済みの切符でもう一度降りる場合' do
-  #   example 'エラーが発生する' do
-  #     ticket = Ticket.new(150)
-  #     umeda = Gate.new(:umeda)
-  #     juso = Gate.new(:juso)
-  #     umeda.enter(ticket)
-  #     expect(juso.exit(ticket)).to be_truthy
-  #     expect { juso.exit(ticket) }.to raise_error(StaleTicketError)
-  #   end
-  # end
-  #
+  context '使用済みの切符でもう一度降りる場合' do
+    example 'エラーが発生する' do
+      ticket = Ticket.new(150)
+      umeda = Gate.new(:umeda)
+      juso = Gate.new(:juso)
+      umeda.enter(ticket)
+      expect(juso.exit(ticket)).to be_truthy
+      expect { juso.exit(ticket) }.to raise_error(StaleTicketError)
+    end
+  end
+
   # context '改札を通っていない切符で降りる場合' do
   #   example 'エラーが発生する' do
   #     ticket = Ticket.new(150)

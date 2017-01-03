@@ -57,7 +57,7 @@ class Gate
   # @raise [ExitSameStationError] 乗車駅と同じ駅で出場した場合に発生します。
   def exit(ticket)
     raise ExitSameStationError if ticket.from == self.name
-
+    raise StaleTicketError if ticket.stale?
     ticket.mark_as_stale
     exitable?(ticket)
   end
